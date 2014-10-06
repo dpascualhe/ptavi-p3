@@ -1,6 +1,4 @@
 ptavi-p3
 ========
 
-Práctica 3 / PTAVI -> SMIL y XML
-
-:saxophone::bug:
+Práctica 3 / PTAVI -> SMIL y XML :saxophone::bug:
