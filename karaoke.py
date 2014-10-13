@@ -27,7 +27,8 @@ for tag in tags:
     for attr in tag[t_name]:
         value = tag[t_name][attr] 
         if attr == "src":
-            os.system ('wget -q ' + value)        
+            os.system ('wget -q ' + value)
+            value = value.split('/')[-1]      
         if value != "":
             full_tag += '\t' + attr + '=' + value
             
