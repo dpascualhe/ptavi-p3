@@ -5,6 +5,7 @@ from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 from smallsmilhandler import SmallSMILHandler 
 import sys
+import os
 
 
 try:
@@ -25,6 +26,9 @@ for tag in tags:
     full_tag = t_name
     for attr in tag[t_name]:
         value = tag[t_name][attr] 
+        if attr == "src":
+            os.system ('wget -q ' + value)        
         if value != "":
             full_tag += '\t' + attr + '=' + value
+            
     print full_tag
