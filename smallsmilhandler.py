@@ -7,45 +7,45 @@ from xml.sax.handler import ContentHandler
 class SmallSMILHandler(ContentHandler):
 
     def __init__ (self):
-        self.root_layout = {}
-        self.region = {}
-        self.img = {}
-        self.audio = {}
-        self.textstream = {}
         self.tags_list = []
 
     def get_tags(self, name, attrs):
         add = 1
         if name == 'root-layout':
-            self.root_layout['width'] = attrs.get('width',"")            
-            self.root_layout['height'] = attrs.get('height',"")
-            self.root_layout['background-color'] = attrs.get('background-color',"")
-            actual = {'root-layout': self.root_layout}
+            root_layout = {}
+            root_layout['width'] = attrs.get('width',"")            
+            root_layout['height'] = attrs.get('height',"")
+            root_layout['background-color'] = attrs.get('background-color',"")
+            actual = {'root-layout': root_layout}
 
         elif name == 'region':
-            self.region['id'] = attrs.get('id', "")
-            self.region['top'] = attrs.get('top', "")
-            self.region['bottom'] = attrs.get('bottom', "")
-            self.region['left'] = attrs.get('left', "")
-            self.region['right'] = attrs.get('right', "")
-            actual = {'region': self.region} 
-       
+            region = {}
+            region['id'] = attrs.get('id', "")
+            region['top'] = attrs.get('top', "")
+            region['bottom'] = attrs.get('bottom', "")
+            region['left'] = attrs.get('left', "")
+            region['right'] = attrs.get('right', "")
+            actual = {'region': region}
+                   
         elif name == 'img':
-            self.img['src'] = attrs.get('src', "")
-            self.img['region'] = attrs.get('region', "")
-            self.img['begin'] = attrs.get('begin', "")
-            self.img['dur'] = attrs.get('dur', "")
-            actual = {'img': self.img} 
+            img = {}
+            img['src'] = attrs.get('src', "")
+            img['region'] = attrs.get('region', "")
+            img['begin'] = attrs.get('begin', "")
+            img['dur'] = attrs.get('dur', "")
+            actual = {'img': img} 
         
         elif name == 'audio':
-            self.audio['src'] = attrs.get('src', "")
-            self.audio['begin'] = attrs.get('begin', "")
-            self.audio['dur'] = attrs.get('dur', "")             
-            actual = {'audio': self.audio}
-        elif name == 'textstream':      
-            self.textstream['src'] = attrs.get('src', "")
-            self.textstream['region'] = attrs.get('region', "")
-            actual = {'textstream': self.textstream} 
+            audio = {}
+            audio['src'] = attrs.get('src', "")
+            audio['begin'] = attrs.get('begin', "")
+            audio['dur'] = attrs.get('dur', "")             
+            actual = {'audio': audio}
+        elif name == 'textstream':     
+            textstream = {} 
+            textstream['src'] = attrs.get('src', "")
+            textstream['region'] = attrs.get('region', "")
+            actual = {'textstream': textstream} 
         else:
             add = 0
 
