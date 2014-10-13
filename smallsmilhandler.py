@@ -51,10 +51,9 @@ class SmallSMILHandler(ContentHandler):
 
         if add:
             self.tags_list.append(actual)
-
     
     def startElement(self, name, attrs):
-        self.get_tags(name, attrs)    
+        self.get_tags(name, attrs)  
 
 
 if __name__ == "__main__":
@@ -62,5 +61,3 @@ if __name__ == "__main__":
     sHandler = SmallSMILHandler()
     parser.setContentHandler(sHandler)
     parser.parse(open('karaoke.smil'))
-
-    #print sHandler.tags_list
